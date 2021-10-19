@@ -15,8 +15,9 @@ Python のロギング方法について [ログ出力のための print と imp
 
 適当に考えていたことや参考情報は [Scrap](https://zenn.dev/tkm/scraps/6a74a4e351495c) に記載しています。
 
-**筆者の環境**
+ここで紹介するソースコードは [GitHub](https://github.com/zztkm/python-logging-example) に公開しています。
 
+筆者の実行環境は以下のようになっています(OS関係)
 - Windows 10
 - Python3.9
 
