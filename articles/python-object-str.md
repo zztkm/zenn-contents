@@ -14,8 +14,33 @@ Python の object を `print(object)` したときなどにいい感じに表示
 - Windows 10
 - Python3.9
 
+# 目次
+
+- 今回用いる例
+
 
 # 📚今回用いる例
 
-[discord.py](https://github.com/Rapptz/discord.py)というDiscord API を用いて Discord Bot を作ることができるライブラリがあります。
-今回はこちらを使ったアプリケーションを例に記事を書いていきます！
+todo: なんかいい感じなやつを使う
+
+今回は以下のような実装の架空の`User`クラスが存在するとして進めます。
+
+ちなみにこのクラスの参考元は[discord.py](https://github.com/Rapptz/discord.py/blob/master/discord/user.py)です。
+
+```python
+class User:
+
+	def __init__(self, name: str, id: int, tag: str):
+		self.user = name
+		self.id = id
+		self.tag = tag
+
+	def __str__(self) -> str:
+		return f"{self.name}#{self.tag}"
+
+	def send
+```
+
+# 🎮実際に動かしてみる
+
+
