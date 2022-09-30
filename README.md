@@ -7,6 +7,11 @@
 
 ## Cmd
 
+New articles
+```shell
+npx zenn new:article
+```
+
 プレビュー:
 ```shell
 npx zenn preview
