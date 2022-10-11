@@ -19,15 +19,15 @@ V 言語では条件付きコンパイルという機能を利用して、コン
 module main
 
 fn main() {
-	$if linux {
-		println('linux')
-	}
-	$if macos {
-		println('macos')
-	}
-	$if windows {
-		println('windows')
-	}
+    $if linux {
+        println('linux')
+    }
+    $if macos {
+        println('macos')
+    }
+    $if windows {
+        println('windows')
+    }
 }
 ```
 
@@ -48,8 +48,8 @@ module main
 import os
 
 fn main() {
-	os := os.user_os()
-	println('Using $os')
+    os := os.user_os()
+    println('Using $os')
 }
 ```
 
@@ -65,49 +65,49 @@ Using macos
 ```v
 // user_os returns current user operating system name.
 pub fn user_os() string {
-	$if linux {
-		return 'linux'
-	}
-	$if macos {
-		return 'macos'
-	}
-	$if windows {
-		return 'windows'
-	}
-	$if freebsd {
-		return 'freebsd'
-	}
-	$if openbsd {
-		return 'openbsd'
-	}
-	$if netbsd {
-		return 'netbsd'
-	}
-	$if dragonfly {
-		return 'dragonfly'
-	}
-	$if android {
-		return 'android'
-	}
-	$if termux {
-		return 'termux'
-	}
-	$if solaris {
-		return 'solaris'
-	}
-	$if haiku {
-		return 'haiku'
-	}
-	$if serenity {
-		return 'serenity'
-	}
-	$if vinix {
-		return 'vinix'
-	}
-	if getenv('TERMUX_VERSION') != '' {
-		return 'termux'
-	}
-	return 'unknown'
+    $if linux {
+        return 'linux'
+    }
+    $if macos {
+        return 'macos'
+    }
+    $if windows {
+        return 'windows'
+    }
+    $if freebsd {
+        return 'freebsd'
+    }
+    $if openbsd {
+        return 'openbsd'
+    }
+    $if netbsd {
+        return 'netbsd'
+    }
+    $if dragonfly {
+        return 'dragonfly'
+    }
+    $if android {
+        return 'android'
+    }
+    $if termux {
+        return 'termux'
+    }
+    $if solaris {
+        return 'solaris'
+    }
+    $if haiku {
+        return 'haiku'
+    }
+    $if serenity {
+        return 'serenity'
+    }
+    $if vinix {
+        return 'vinix'
+    }
+    if getenv('TERMUX_VERSION') != '' {
+        return 'termux'
+    }
+    return 'unknown'
 }
 ```
 
