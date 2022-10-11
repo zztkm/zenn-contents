@@ -30,15 +30,15 @@ todo: なんかいい感じなやつを使う
 ```python
 class User:
 
-	def __init__(self, name: str, id: int, tag: str):
-		self.user = name
-		self.id = id
-		self.tag = tag
+    def __init__(self, name: str, id: int, tag: str):
+        self.user = name
+        self.id = id
+        self.tag = tag
 
-	def __str__(self) -> str:
-		return f"{self.name}#{self.tag}"
+    def __str__(self) -> str:
+        return f"{self.name}#{self.tag}"
 
-	def send
+    def send
 ```
 
 # 🎮実際に動かしてみる
