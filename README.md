@@ -9,7 +9,7 @@
 
 New articles
 ```shell
-npx zenn new:article
+npx zenn new:article --slug
 ```
 
 プレビュー:
