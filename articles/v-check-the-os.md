@@ -3,7 +3,7 @@ title: "V 言語で OS の種類を判定する"
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vlang"]
-published: false
+published: true
 ---
 
 ## はじめに
