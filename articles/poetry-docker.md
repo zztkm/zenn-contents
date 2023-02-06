@@ -3,7 +3,7 @@ title: "Poetry で管理した依存を Docker コンテナ内でインストー
 emoji: "🗂"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["poetry", "docker"]
-published: false
+published: true
 ---
 
 ## はじめに
