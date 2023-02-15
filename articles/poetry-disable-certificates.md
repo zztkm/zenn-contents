@@ -3,7 +3,7 @@ title: "Poetry でCERTIFICATE_VERIFY_FAILEDが出る時の対処法"
 emoji: "😊"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["poetry"]
-published: false
+published: true
 ---
 
 :::message alert
@@ -26,35 +26,52 @@ https://pip.pypa.io/en/stable/cli/pip/#trusted-host
 
 ## 今回信頼するホスト
 
-以下の 3 つのホストを信頼できるソースとして設定に追加します。
+以下の 2 つのホストを信頼できるソースとして設定に追加します。
 
 - pypi.org
 - files.pythonhosted.org
-- pypi.python.org
-	- pypi.org にリダイレクトされます
 
 ## 設定方法
 
 poetry で依存管理しているプロジェクト内で以下のコマンドを実行していくだけです。
 
-TODO: pypi を cert false するだけで良いか検証する
-```
-poetry config certificates.pypi.cert false
-```
+### 1. Package Source の追加
 
-### 1. Default Package Source の変更
+```
+poetry source add --default pypiorg https://pypi.org/simple/
+poetry source add files https://files.pythonhosted.org/
+```
 
 https://python-poetry.org/docs/repositories/#default-package-source
 
 ### 2. 追加したソースたちの証明書検証を無効化
 
+```
+poetry config certificates.pypiorg.cert false
+poetry config certificates.files.cert false
+```
+
 https://python-poetry.org/docs/repositories/#custom-certificate-authority-and-mutual-tls-authentication
 
-## 設定の解説
+これで `poetry add pytest` のようにライブラリをインストールすることができるようになります。
 
-### 1. Default Package Source の変更
+## 設定の補足
 
-まず、
+### 1. Package Source の追加
 
-### 2. 追加したソースたちの証明書検証を無効化
+:::message
+
+`https://pypi.org/simple/` についてですが、こちらは `pypi` という名前でデフォルトで登録されているので `poetry config certificates.pypi.cert false` とコマンドを実行すれば証明書検証を無効化できると思ったのですができませんでした（すみませんが何故かはまだわかっていません...）。
+そこで、同じURLで別のソースとして登録しデフォルトに設定してみたところ証明書検証を無効化することができました。
+
+:::
+
+
+## おわりに
+
+今回紹介した設定はプロジェクトごとにソースの設定が必要となってしまい、pip.ini に trusted-host として設定すると同じようにグローバルに設定することはできませんでした。
+
+別のやり方を見つけたり、説明できることが増えたら記事を更新する予定です。
+
+ここまで読んでくれてありがとうございました 🍚
 
