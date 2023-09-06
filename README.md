@@ -14,5 +14,5 @@ npx zenn new:article --slug
 
 プレビュー:
 ```shell
-npx zenn preview
+pnpm preview
 ```
