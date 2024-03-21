@@ -3,7 +3,7 @@ title: OpenCV の便利な関数ライブラリを作ってる
 emoji: "📸"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["python3", "rust", "opencv", "pyo3"]
-published: false
+published: true
 ---
 
 ## はじめに
