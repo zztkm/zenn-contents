@@ -3,7 +3,7 @@ title: "Cloudflare Workers D1 with Go スタック | 202411 版"
 emoji: "🟢"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["go", "cloudflareworkers", "sqlc"]
-published: false
+published: true
 ---
 
 Cloudflare Workers D1 アプリケーションを Go で書くときのお気に入りスタックを紹介します。
@@ -36,9 +36,7 @@ DB を使ったアプリケーションであれば自分は sqlc を使いた�
 ## sqlc を選んだ理由
 
 自分は以前 SQL を書く仕事をしていたので、ORM を使わず SQL でクエリを記述するのに抵抗はありませんでした。
-
 しかし、SQL で取得した結果を model にマッピングする実装を自分で書いていたときはマッピングミスなどをやっていました。
-
 そんなときに出会ったのが sqlc でした（たしか時雨堂の V さんがツイートしていたのを見かけて知った気がする）。
 
 書いた SQL から Type Safe なコードを生成してくれるツールというのはまさに自分が求めていたものでした。
@@ -55,7 +53,7 @@ syumai/workers は HTTP Server を動かす基盤を提供してくれますが�
 
 このルーティング部分を解決するライブラリとして michi を選んだ理由は以下の機能概要を見て Cloudfare Workers で動かすのに合っているなと思ったからです。
 
-![](/images/21262273c01d65c291aa27268fa2d847.png)
+![スクショ](/images/21262273c01d65c291aa27268fa2d847.png)
 スクリーンショット引用元: [Go 1.22のEnhanced ServeMuxに合わせて設計されたルーティングライブラリmichi](https://zenn.dev/sonatard/articles/831b761a27b230) より
 
 特に外部パッケージ依存がなく小さい実装であることと 、net/http と 100 % 互換性というのは Cloudfare Workers で使っていく上で個人的に嬉しい内容です。
@@ -81,4 +79,4 @@ syumai/workers は HTTP Server を動かす基盤を提供してくれますが�
 
 syumai/workers のおかげで Cloudflare Workers で Go の HTTP サーバーを動かすハードルがめちゃくちゃ下がりました。
 
-今は TinyGo でビルドできないので、、syumai/workers + sqlc + michi という組み合わせで Workers アプリを書いていこうと思います。
+今は TinyGo でビルドできないですが、今後も syumai/workers + sqlc + michi という組み合わせで Workers アプリを書いていこうと思います。
