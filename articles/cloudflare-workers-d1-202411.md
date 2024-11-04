@@ -6,17 +6,16 @@ topics: ["go", "cloudflareworkers", "sqlc"]
 published: false
 ---
 
-Cloudflare Workers D1 アプリケーションを Go で書くときのお気に入りスタックを紹介します。今回紹介するスタックには syumai/workers, michi, sqlc が含まれています。
+Cloudflare Workers D1 アプリケーションを Go で書くときのお気に入りスタックを紹介します。
 
 この記事は自分のブログに書いた [Cloudflare Workers D1 with Go](https://blog.tsurutatakumi.info/posts/cloudflare-workers-go-d1-202404) をリライトしたもので、内容はほぼ同じです（今見ても自分には良いスタックに思えたので）。
 
 ## TL;DR
 
 - [syumai/workers](https://github.com/syumai/workers) は最高
-  - ライブラリについて: [Cloudflare Workersで簡単にGoのHTTPサーバーを動かすためのライブラリを作った](https://zenn.dev/syumai/articles/ca9n4e91eqljc44k6ebg)
-  - D1 を sql.Open で扱うことができる
+  - D1 を sql.Open で扱うことができて嬉しい
 - sql.Open で D1 を扱えるので、[sqlc](https://github.com/sqlc-dev/sqlc) をそのまま使える
-- HTTP Router には [michi](https://github.com/go-michi/michi) が良い感じ
+- HTTP Router には [michi](https://github.com/go-michi/michi) がちょうど良い
 
 ## モチベーション
 
@@ -36,10 +35,9 @@ DB を使ったアプリケーションであれば自分は sqlc を使いた�
 
 ## sqlc を選んだ理由
 
-自分のエンジニアキャリアにおいて最初の仕事は Oracle DB を使って SQL でデータ作成をしてクライアントに納品するといった内容でした。
-そのときから生クエリを書いていたので、その後の開発で ORM やクエリビルダーに触れたあとも SQL を直接書いてアプリケーションを書くというのは自分にとって普通の選択肢でした。
+自分は以前 SQL を書く仕事をしていたので、ORM を使わず SQL でクエリを記述するのに抵抗はありませんでした。
 
-しかし、SQL で取得した結果を model にマッピングする実装を自分で書いていたときはマッピングミスだったり、型の違いによるバグなどが起こしていました。
+しかし、SQL で取得した結果を model にマッピングする実装を自分で書いていたときはマッピングミスなどをやっていました。
 
 そんなときに出会ったのが sqlc でした（たしか時雨堂の V さんがツイートしていたのを見かけて知った気がする）。
 
@@ -49,6 +47,7 @@ DB を使ったアプリケーションであれば自分は sqlc を使いた�
 
 - 定型クエリは sqlc
 - 動的なクエリが必要なときはクエリビルダ
+  - Go でクエリビルダを使ったことはないけど、[goqu](https://doug-martin.github.io/goqu/) とか便利そう
 
 ## michi を選んだ理由
 
