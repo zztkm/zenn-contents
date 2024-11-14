@@ -8,11 +8,13 @@
 ## Cmd
 
 New articles
+
 ```shell
-npx zenn new:article --slug
+pnpm exec zenn new:article --slug <slug>
 ```
 
-プレビュー:
+LIVE プレビュー:
+
 ```shell
-pnpm preview
+pnpm run start
 ```
