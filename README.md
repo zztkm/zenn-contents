@@ -10,7 +10,7 @@
 New articles
 
 ```shell
-pnpm exec zenn new:article --slug <slug>
+pnpm exec zenn new:article --slug
 ```
 
 LIVE プレビュー:
